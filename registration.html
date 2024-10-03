@@ -5,7 +5,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <style>
-        table,td{
+        caption{
+            font-size:20px;
+            font-weight:bold;
+            color:white;
+            background-color:#192841;
+            padding:5px;
+        }
+        td{
+            background-color:#ffffff;
+        }
+        table,td,caption{
             border:1px solid #000000;
         }
         input[type="tel"],input[type="email"],input[type="text"],
@@ -25,6 +35,7 @@
         <center>
             <h1>An Event Management Company</h1>
             <table>
+                <caption id="table_caption">Vendor Registration Form</caption>
                 <tr>
                     <td><label for="CompanyName">Company name</label></td>
                     <td>
