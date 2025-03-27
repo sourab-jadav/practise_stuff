@@ -1,0 +1,192 @@
+<!--Do not make any change in this code template; add codes in the areas indicated-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Elektra Waves Concert Ticket Booking</title> 
+		<style>
+			body{
+               background-image:url("concert.jpg");
+			   opacity: 0.9;
+			   font-weight: bold;
+			}
+			h3, #result, caption{
+               color: #FFFFFF;
+               font-family: Verdana;
+               text-align: center;
+			}
+			.title{
+				color: #000000;
+			}
+			#tickettable{
+			   margin-left: auto;
+			   margin-right: auto;
+			   width: 50%;  
+			}
+			#costchart{
+			    margin-left: auto;
+			    margin-right: 0;	
+			}
+			td, th{
+				background-color: #ffffff;
+				color: #000000;
+				padding:7px;
+				border:2px solid #000000;	
+			}
+		    input[type="tel"],select,textarea,input[type="text"]{
+				width:97%;
+			}
+			input[type="range"]{
+				width:94%;
+			}
+			input::placeholder {
+				color:black;
+			}
+		    #submit,#clear{
+		   		color: #000000; 
+				padding:7px;
+				border-radius: 5px;	
+				font-weight: bold;
+			} 
+		    #buttons{
+				margin-left: 40%;
+			}
+		</style>
+        <script>
+            function show_value(x){
+                document.getElementById("demo").innerHTML=x;
+            }
+
+            function  costCalculation(){
+                // fill javascript code here - do not use let keyword for variable intialization; instead use var. 
+                var nooftickets = parseInt(document.getElementById("noOfTickets").value);
+                var tickettype = document.getElementById("ticketType").value;
+                var coupon = document.getElementById("couponCode");
+                var refreshment = document.getElementById("refreshment");
+                var basePrice = 0;
+                var Total = 0;
+
+                if(tickettype == "Floor" )
+                    basePrice = 400;
+                else
+                    basePrice = 500;
+
+                var discount = 0;
+                var refresh = 0;
+
+                if(nooftickets > 20)
+                    discount += 10;
+                if(coupon.checked === true)
+                    discount += 2;
+                if(refreshment.checked === true)
+                    refresh = 100;
+
+                Total = Math.round((nooftickets*basePrice) - ((basePrice*nooftickets*discount)/100) + refresh);
+
+                document.getElementById('result').innerHTML = "your ticket charge is Rs."+Total;
+                return false;
+            }
+
+        </script>
+    </head>
+    <body>
+        <form onsubmit="return costCalculation();">
+            <h3>Elektra Waves Concert Ticket Booking</h3><br/>
+            <table id="tickettable" >
+            	<tr><td colspan="2"><a href="#costchart" id="costchart_ref">View ticket cost chart</a></td></tr>
+            	
+            	<tr><td colspan="2" class="title">Personal Details</td></tr>
+            	<tr>
+            	    <td>Name</td> 
+            	    <td><input type="text" pattern="[a-zA-Z ]+" id="name" placeholder="Enter your name" required /> <!--fill the code--></td>
+            	</tr>
+            	<tr> 
+            	    <td>Gender</td> 
+            	    <td> 
+                	    <input type="radio" name = "gender" value="male" id="male" required="required" /><!--fill the code-->
+                	    <label for="male">male</label>
+                	    <input type="radio" name = "gender" value="female" id="female" required="required" /><!--fill the code-->
+                	    <label for="female">female</label>
+            	    </td>
+            	    
+            	</tr>
+            	<tr> 
+            	    <td>Address</td> 
+            	    <td><textarea name="address" id=address rows="4" cols="50" required="required" placeholder="Enter your address"></textarea><!--fill the code--></td>
+            	 </tr>
+                <tr>
+                    <td>Phone Number</td>
+                    <td><input id="phoneNumber" type="tel" pattern="[7-9]{1}[0-9]{9}" placeholder="Enter your Phone Number" required="required"><!--fill the code--></td>
+                </tr>
+                
+            	<tr><td colspan="2" class="title">Ticket Details</td></tr>
+            	<tr>
+                    <td>No Of Tickets</td>
+                    <td><input type="range" id="noOfTickets" min="5" max="40" step="1" onchange="show_value(this.value);" required /><!--fill the code--><span id="demo"></span></td>
+                </tr>
+                <tr>
+                    <td>Ticket Type</td>
+                    <td> <select name="" id="ticketType" required>
+                                <option value = "Floor">Floor</option>
+                                <option value = "Balcony">Balcony</option>
+                    </select> <!--fill the code--></td>
+                </tr>
+                <tr>
+                    <td>Add Ons</td>
+                    <td><input type="checkbox" name="addOns" id="couponCode" value="couponCode" />
+                            <label for="couponCode">couponCode</label>
+                        <input type="checkbox" name="addOns" id="refreshment" value="refreshment" />
+                            <label for="refreshment">Refreshment</label>
+                            
+                    <!--fill the code--></td>
+                </tr>
+                <tr>
+                    <td>Coupon Code</td>
+                    <td>
+                        <input type="text" id="cc" list="couponCodes" required="required" />
+                        <datalist id="couponCodes">
+                            <option value="ELECTRA20">
+                            <option value="SIMBA20">
+                        </datalist>
+                        <!--fill the code--></td>
+                </tr>
+            </table>
+            <br/><br/>
+            
+            <div id="buttons">
+                    <!--fill the code-->
+                    <input type="submit" id="submit" value="CONFIRM BOOKING" />
+                    <input type="reset" id="clear" value="CLEAR" />
+            </div>
+            <br/>
+            <div id="result"> </div>
+            <br/><br/>
+            
+            <table id="costchart">
+                <caption>Ticket Cost Chart</caption>
+                <tr>
+                    <th>Ticket Type</th>
+                    <th>Base Price</th>
+                    <th>On Booking more than 20 tickets</th>
+            		<th>On applying coupon code</th>
+                </tr>
+            	<tr>
+                    <td>Floor</td>
+                    <td>400</td>
+                    <td>10% discount</td>
+            		<td>2% discount</td>
+                </tr>
+            	<tr>
+                    <td>Balcony</td>
+                    <td>500</td>
+                    <td>10% discount</td>
+            		<td>2% discount</td>
+                </tr>
+            	<tfoot>
+                	<tr>
+                        <td colspan=4>* You must pay Rs.100 extra on choosing Refreshment!</td>
+                    </tr>
+            	</tfoot>
+            </table>
+        </form>
+    </body>
+</html>
