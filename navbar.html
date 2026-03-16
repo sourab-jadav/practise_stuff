@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nav bar</title>
+</head>
+<style>
+    .nav-container{
+        display: flex;
+        background-color: blue;
+        justify-content: space-around;
+        color: white;
+        height: 100px;
+    }
+    .nav-container  button{
+        padding: 7px 10px;
+        border-radius: 20px;
+    }
+    .logo{
+        flex:0 0 auto;
+    }
+</style>
+<body>
+    <div class="nav-container">
+        <div class="logo">logo</div>
+        <div class="action-buttons">
+            <button>action 1</button>
+            <button>action 2</button>
+            <button>action 3</button>
+            <button>action 4</button>
+        </div>
+        <div class="search">
+            <input type="text" name="search-btn" id="search">
+            <button>search</button>
+        </div>
+    </div>
+</body>
+</html>
