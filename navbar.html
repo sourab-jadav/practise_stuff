@@ -12,13 +12,32 @@
         justify-content: space-around;
         color: white;
         height: 100px;
+        align-items: center;
+        overflow: scroll;
+
     }
     .nav-container  button{
-        padding: 7px 10px;
         border-radius: 20px;
     }
+  
+    .nav-container .action-buttons{
+        /* background-color: yellow; */
+        display: flex;
+        /* grow shrink basis [ 1 1 0] */
+        flex: 2 1 50%;
+        gap: 25px;
+        height: 54px;
+        align-items: center;
+        justify-content: center;
+        background-color: yellow;
+    }
     .logo{
-        flex:0 0 auto;
+        flex:1 0 20%;
+        background-color: skyblue;
+    }
+    .search{
+        flex: 1 1 30%;
+        background-color: red;
     }
 </style>
 <body>
