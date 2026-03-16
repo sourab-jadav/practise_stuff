@@ -22,6 +22,7 @@
          /* you need to have more height than the content size to see this property in action*/
         align-items: center;
         height: 300px;
+        overflow:scroll;
        
     }
     .box{
@@ -34,7 +35,8 @@
         justify-content: center;
         align-items: center;
         font-weight: bold;
-        /* flex-grow: 1; */
+        flex-grow: 1;
+        flex-shrink: 0;
     }
     /* flex-grow is the property you apply only to the child */
     .box-1 { background-color: #ff595e;
