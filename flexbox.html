@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .flex-container{
+        width:50%;
+        /* width: fit-content; */
+        
+        display: flex;
+        /*
+        with flex-direction - column behaviour of align-items and justify-content get's swapped 
+         */
+        /* flex-direction: column; */
+        gap: 20px;
+        background: red;
+        /* you need to have width more than the content size to see this below property in action */
+        justify-content: center;
+         /* you need to have more height than the content size to see this property in action*/
+        align-items: center;
+        height: 300px;
+       
+    }
+    .box{
+        background-color: blue;
+        width: 30px;
+        height: 30px;
+        color: white;
+        /* flex inside a flex item is allowed */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        /* flex-grow: 1; */
+    }
+    /* flex-grow is the property you apply only to the child */
+    .box-1 { background-color: #ff595e;
+        flex-grow: 1;
+    }
+    .box-2 { background-color: #ffca3a;
+         /*twice the space as one  */
+        flex-grow: 2;
+    }
+    .box-3 { background-color: #8ac926; 
+        /* thrice the space as one */
+        flex-grow: 3;
+    }
+</style>
+<body>
+    <h1>flexbox styling</h1>
+    <div class="flex-container">
+  <div class="box box-1">1</div>
+  <div class="box box-2">2</div>
+  <div class="box box-3">3</div>
+</div>
+</body>
+</html>
